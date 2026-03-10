@@ -1,16 +1,19 @@
 namespace sap.cap.productshop;
-
+using{cuid}from'@sap/cds/common';
+using{managed}from'@sap/cds/common';
 aspect carbonemission{
     emission:Integer;
     rating:String;
+}
+aspect id {
+    key ID:UUID;
 }
 type pricecost {
     price: Integer;
     stock:Integer;
 }
-entity Product:carbonemission
+entity Product:cuid,carbonemission,managed
 {
-    key ID : Integer;
     name : String;
     category : Integer;
     cost:pricecost;

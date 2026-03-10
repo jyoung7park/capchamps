@@ -4,4 +4,16 @@
 
 ##GET http://localhost:4004/rest/product/MyFunction(category=2)
 ##GET http://localhost:4004/odata/v4/productshop/Supplier
-GET http://localhost:4004/odata/v4/productshop/Product
+##GET http://localhost:4004/odata/v4/productshop/Product
+
+POST http://localhost:4004/odata/v4/productshop/Product
+Content-Type: application/json
+
+{
+      "emission": 2000,
+      "rating": "E+",
+      "name": "New",
+      "category": 14,
+      "cost_price": 555,
+      "cost_stock": 12
+    }
