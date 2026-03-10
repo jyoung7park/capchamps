@@ -8,4 +8,6 @@
 
 ## cds watch
 
-* start 
+* start the server and listen to your file changes.
+
+## namespace --> unique name to tyour application
