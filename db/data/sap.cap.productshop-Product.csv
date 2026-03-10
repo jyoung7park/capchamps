@@ -1,4 +1,4 @@
-ID,name,stock,price,category
-1,BMW,12,433232,1
-2,Audi,43,433232,2
-3,Hyundai,44,433232,3
+ID,name,category,cost_price,cost_stock,emission,rating
+1,BMW,1,555,12,2000,A+
+2,Audi,2,777,55,3000,B+
+3,Hyundai,3,6666,55,4000,C+
