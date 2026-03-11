@@ -29,6 +29,12 @@ entity Product : cuid, managed, carbonemission
     stock : Integer;
     //cost : pricecost;
     supplier : Association to one Supplier;
+    conversation: Composition of many {
+        key ID:UUID;
+        timestamp: String;
+        processor: String;
+        message:String;
+    }
 }
 
 /**
