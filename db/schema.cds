@@ -24,9 +24,10 @@ type pricecost
 entity Product : cuid, managed, carbonemission
 {
     name : String;
-    category : Integer;
+    category : String;
     price : Integer;
     stock : Integer;
+    crtiticality:Integer;
     //cost : pricecost;
     supplier : Association to one Supplier;
     conversation: Composition of many {

@@ -3,7 +3,8 @@ using { sap.cap.productshop as my }  from '../db/schema';
 service productshop {
 
     entity Product as projection on my.Product actions{
-        action orderProduct(name:String,stock:Integer);
+        action orderProduct(name:String @title:'Product Name',stock:Integer @title:'Stock');
+        action fingerprint(name:String);
         action createPO(name:String);
     };
     entity Supplier as projection on my.Supplier;
