@@ -1,47 +1,28 @@
 using productshop as service from '../../srv/product-service';
+using from '../../db/schema';
+
 annotate service.Product with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'emission',
-                Value : emission,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'rating',
-                Value : rating,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'name',
-                Value : name,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'category',
-                Value : category,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'price',
                 Value : price,
+                Label : 'price',
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'stock',
                 Value : stock,
+                Label : 'stock',
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'crtiticality',
-                Value : crtiticality,
+                Value : rating,
+                Label : 'rating',
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'supplier_ID',
-                Value : supplier_ID,
+                Value : category,
             },
         ],
     },
@@ -51,6 +32,18 @@ annotate service.Product with @(
             ID : 'GeneratedFacet1',
             Label : 'General Information',
             Target : '@UI.FieldGroup#GeneratedGroup',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>SupplierInformation}',
+            ID : 'i18nSupplierInformation',
+            Target : '@UI.FieldGroup#i18nSupplierInformation',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Converstion',
+            ID : 'Converstion',
+            Target : 'conversation/@UI.LineItem#Converstion',
         },
     ],
     UI.LineItem : [
@@ -105,6 +98,59 @@ annotate service.Product with @(
         name,
         category,
     ],
+    UI.HeaderInfo : {
+        Title : {
+            $Type : 'UI.DataField',
+            Value : name,
+        },
+        TypeName : '',
+        TypeNamePlural : '',
+        Description : {
+            $Type : 'UI.DataField',
+            Value : supplier.name,
+        },
+        TypeImageUrl:'sap-icon://car-rental',
+        Criticality : #Positive,
+    },
+    UI.Identification : [
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'productshop.orderProduct',
+            Label : '{i18n>Orderproduct}',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'productshop.fingerprint',
+            Label : '{i18n>Fingerprint}',
+            Determining : true,
+            Criticality : #Positive,
+        },
+    ],
+    UI.FieldGroup #i18nSupplierInformation : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : supplier.ID,
+                Label : 'ID',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : supplier.name,
+                Label : 'name',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : supplier.city,
+                Label : 'city',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : supplier.phone,
+                Label : 'phone',
+            },
+        ],
+    },
 );
 
 annotate service.Product with {
@@ -140,4 +186,24 @@ annotate service.Product with {
 annotate service.Product with {
     category @Common.Label : '{i18n>Category}'
 };
+
+annotate service.Product.conversation with @(
+    UI.LineItem #Converstion : [
+        {
+            $Type : 'UI.DataField',
+            Value : up_.conversation.message,
+            Label : 'message',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : up_.conversation.processor,
+            Label : 'processor',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : up_.conversation.timestamp,
+            Label : 'timestamp',
+        },
+    ]
+);
 
