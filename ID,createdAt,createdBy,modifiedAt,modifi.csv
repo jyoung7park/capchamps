@@ -1,0 +1,3 @@
+ID,createdAt,createdBy,modifiedAt,modifiedBy,emission,rating,name,category,price,stock,crtiticality,supplier_ID
+591cdab2-4620-43ea-9c8c-24f4b06906a5,2026-03-11T05:54:27.002Z,anonymous,2026-03-11T05:54:27.002Z,anonymous,2000,4,BMW,A,555,12,1,1
+29abacb9-e64f-4465-ae5f-e47a0c0f5648,2026-03-11T05:54:27.002Z,anonymous,2026-03-11T05:54:27.002Z,anonymous,4000,1,Hyundai,C,6666,55,3,3

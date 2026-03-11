@@ -4,7 +4,7 @@ service productshop {
 
     @odata.draft.enabled
     entity Product as projection on my.Product actions{
-        action orderProduct(name:String @title:'Product Name',stock:Integer @title:'Stock');
+        action orderProduct(stock:Integer @title:'Stock');
         action fingerprint(name:String);
         action createPO(name:String);
     };
@@ -12,3 +12,5 @@ service productshop {
     function MyFunction(name:String) returns String;
     Action MyAction(name:String) returns String;
 }
+
+//annotate productshop with @(requires:'prductmanager');

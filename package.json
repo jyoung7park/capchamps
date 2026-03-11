@@ -22,5 +22,32 @@
   "sapux": [
     "app/productshop",
     "app/products"
-  ]
+  ],
+  "cds":{
+    "requires":{
+      "[development]":{
+        "auth":{
+          "kind":"mocked",
+          "users":{
+            "john":{
+              "roles":["prductmanager"]
+            },
+            "mario":{
+              "password":"initial",
+              "roles":["prductmanager"]
+            },
+            "henry":{
+              "roles":["prductdeveloper"]
+            }
+          }
+        }
+      },
+      "db":{
+        "kind":"sqlite",
+        "credential":{
+          "database":"db.sqlite"
+        }
+      }
+    }
+  }
 }
