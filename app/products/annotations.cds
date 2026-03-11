@@ -83,15 +83,19 @@ annotate service.Product with @(
             Value : price,
         },
         {
-            $Type : 'UI.DataField',
-            Value : emission,
-            Label : '{i18n>Emission}',
-            Criticality : crtiticality,
-        },
-        {
             $Type : 'UI.DataFieldForAction',
             Action : 'productshop.createPO',
             Label : '{i18n>PurchaseOrder}',
+        },
+        {
+            $Type : 'UI.DataFieldForAnnotation',
+            Target : '@UI.DataPoint#crtiticality',
+            Label : '{i18n>5starRate}',
+        },
+        {
+            $Type : 'UI.DataFieldForAnnotation',
+            Target : '@UI.DataPoint#emission1',
+            Label : '{i18n>Emission}',
         },
     ],
     UI.SelectionFields : [
@@ -151,6 +155,22 @@ annotate service.Product with @(
             },
         ],
     },
+    UI.DataPoint #emission : {
+        Value : emission,
+        Visualization : #Rating,
+        TargetValue : 5,
+    },
+    UI.DataPoint #crtiticality : {
+        Value : crtiticality,
+        Visualization : #Rating,
+        TargetValue : 5,
+    },
+    UI.DataPoint #emission1 : {
+        Value : emission,
+        Visualization : #Progress,
+        TargetValue : 4000,
+        Criticality : crtiticality,
+    },
 );
 
 annotate service.Product with {
@@ -206,4 +226,26 @@ annotate service.Product.conversation with @(
         },
     ]
 );
+
+annotate service.Supplier with {
+    name @(
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Supplier',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : name,
+                    ValueListProperty : 'ID',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true,
+)};
+
+annotate service.Supplier with {
+    ID @(
+        Common.Text : name,
+        Common.Text.@UI.TextArrangement : #TextFirst,
+)};
 
