@@ -12,4 +12,12 @@
 
 ##GET http://localhost:4004/odata/v4/productshop/Product?$expand=conversation&$expand=supplier
 
-GET http://localhost:4004/odata/v4/productshop/MyFunction(name='BMW')
+##GET http://localhost:4004/odata/v4/productshop/MyFunction(name='BMW')
+
+POST http://localhost:4004/odata/v4/productshop/Product?orderProduct
+Content-Type: application/json
+
+{
+    "name":"BMW",
+    "stock":12
+}
