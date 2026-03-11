@@ -1,4 +1,4 @@
-ID,name,category,cost_price,cost_stock,emission,rating
-591cdab2-4620-43ea-9c8c-24f4b06906a5,BMW,1,555,12,2000,A+
-6578db4b-1a8a-4a86-9cf1-578c7a50507d,Audi,2,777,55,3000,B+
-29abacb9-e64f-4465-ae5f-e47a0c0f5648,Hyundai,3,6666,55,4000,C+
+ID,name,category,price,stock,emission,rating,supplier_ID
+591cdab2-4620-43ea-9c8c-24f4b06906a5,BMW,1,555,12,2000,4,1
+6578db4b-1a8a-4a86-9cf1-578c7a50507d,Audi,2,777,55,3000,2,1
+29abacb9-e64f-4465-ae5f-e47a0c0f5648,Hyundai,3,6666,55,4000,1,3

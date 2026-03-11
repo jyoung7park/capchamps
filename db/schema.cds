@@ -1,22 +1,34 @@
 namespace sap.cap.productshop;
-using{cuid}from'@sap/cds/common';
-using{managed}from'@sap/cds/common';
-aspect carbonemission{
-    emission:Integer;
-    rating:String;
+
+using { cuid } from '@sap/cds/common';
+
+using { managed } from '@sap/cds/common';
+
+aspect carbonemission
+{
+    emission : Integer;
+    rating : String;
 }
-aspect id {
-    key ID:UUID;
+
+aspect id
+{
+    key ID : UUID not null;
 }
-type pricecost {
-    price: Integer;
-    stock:Integer;
+
+type pricecost
+{
+    price : Integer;
+    stock : Integer;
 }
-entity Product:cuid,carbonemission,managed
+
+entity Product : cuid, managed, carbonemission
 {
     name : String;
     category : Integer;
-    cost:pricecost;
+    price : Integer;
+    stock : Integer;
+    //cost : pricecost;
+    supplier : Association to one Supplier;
 }
 
 /**
@@ -28,5 +40,5 @@ entity Supplier
     name : String(100);
     city : String(100);
     phone : String(100);
+    products : Association to many Product on products.supplier = $self;
 }
-
