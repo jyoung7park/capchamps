@@ -24,6 +24,19 @@
           "odataVersion": "4.01"
         }
       }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "productshop-display": {
+          "semanticObject": "productshop",
+          "action": "display",
+          "title": "{{productshop-display.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
     }
   },
   "sap.ui": {
